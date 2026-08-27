@@ -515,8 +515,6 @@ async function loadDetail() {
 ========================= */
 
 async function submitAd() {
-  const testSession = await sb.auth.getSession();
-alert(JSON.stringify(testSession.data.session?.user?.id || null));
 
   const s = await protect();
 
