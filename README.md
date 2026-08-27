@@ -57,5 +57,4 @@ The system checks for duplicate Transaction IDs before creating a pending paymen
 - On payment verification, automatically set Featured + promotion expiry (7/15/30 days)
 - Prevents users from directly marking their own payment as paid via RLS
 
-## Flat GitHub upload
-All website files are in the repository root; no folders are required.
+Flat root build: all required CSS/JS/admin files are in repository root.

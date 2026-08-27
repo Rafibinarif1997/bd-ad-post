@@ -1,4 +1,4 @@
-<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin Control Center — BD AD POST</title><link rel="stylesheet" href="css/style.css"></head><body>
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin Control Center — BD AD POST</title><link rel="stylesheet" href="../style.css"></head><body>
 <header class="top"><div class="container topin"><a class="logo" href="index.html">🇧🇩 <b>BD AD POST</b> <small>ADMIN</small></a><nav><a href="index.html">সাইট দেখুন</a><button class="btn secondary" onclick="logout()">লগআউট</button></nav></div></header>
 <main class="section"><div class="container">
 <div class="sectionHead"><div><span class="eyebrow">CONTROL CENTER</span><h1>Admin Dashboard</h1><p>Ads, payments, users এবং Featured listings এক জায়গা থেকে পরিচালনা করুন।</p></div></div>
@@ -6,7 +6,7 @@
 <div class="adminTabs"><button onclick="loadPending()">🟡 Pending Ads</button><button onclick="loadApproved()">🟢 Live Ads</button><button onclick="loadRejected()">🔴 Rejected</button><button onclick="loadPayments()">💳 Payments</button></div>
 <div id="adminRows"></div>
 </div></main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="app.js"></script><script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../config.js"></script><script src="../app.js"></script><script>
 let isAdmin=false;
 async function initAdmin(){if(!await adminCheck())return;await refreshStats();loadPending()}
 async function adminCheck(){let s=await protect();if(!s)return false;let p=(await sb.from('profiles').select('role').eq('id',s.user.id).single()).data;if(p?.role!=='admin'){document.body.innerHTML='<div class="empty"><h2>Admin permission প্রয়োজন</h2><a class="btn" href="index.html">হোমে যান</a></div>';return false}isAdmin=true;return true}
