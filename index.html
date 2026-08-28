@@ -1,9 +1,591 @@
-<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BD AD POST — বাংলাদেশের ব্যবসার মার্কেটপ্লেস</title><link rel="stylesheet" href="style.css"></head><body>
-<header class="top"><div class="container topin"><a class="logo" href="index.html">🇧🇩 <b>BD AD POST</b></a><div class="search"><input id="q" placeholder="দোকান, প্রতিষ্ঠান বা সার্ভিস খুঁজুন..."><select id="district"><option value="">সব জেলা</option><option>ঢাকা</option><option>চট্টগ্রাম</option><option>সিলেট</option><option>কুমিল্লা</option><option>রাজশাহী</option><option>খুলনা</option><option>বরিশাল</option><option>রংপুর</option><option>ময়মনসিংহ</option></select><button onclick="goSearch()">🔎</button></div><nav id="authNav"></nav></div></header>
-<section class="hero"><div class="container"><div><span class="pill">🇧🇩 বাংলাদেশি ব্যবসার ডিজিটাল ডিরেক্টরি</span><h1>আপনার এলাকার <span>ভালো ব্যবসা</span> খুঁজে নিন</h1><p>দোকান, রেস্টুরেন্ট, সার্ভিস ও প্রতিষ্ঠানের তথ্য এক জায়গায়। ব্যবসা যোগ করুন সম্পূর্ণ ফ্রিতে।</p><div class="heroBtns"><a class="btn" href="add-ad.html">+ ফ্রি বিজ্ঞাপন দিন</a><a class="btn light" href="ads.html">সব বিজ্ঞাপন দেখুন</a></div></div><div class="heroCard"><b>আপনার ব্যবসা কি এখানে নেই?</b><strong>আজই ফ্রি Listing করুন</strong><small>Admin approval-এর পর প্রকাশিত হবে</small></div></div></section>
-<section class="section"><div class="container"><div class="sectionHead"><div><h2>জনপ্রিয় ক্যাটাগরি</h2><p>আপনার প্রয়োজনের ব্যবসা দ্রুত খুঁজুন</p></div><a href="ads.html">সব দেখুন →</a></div><div class="cats"><a href="ads.html?category=রেস্টুরেন্ট">🍽️<b>রেস্টুরেন্ট</b><small>Food & Dining</small></a><a href="ads.html?category=ফ্যাশন">👗<b>ফ্যাশন</b><small>Fashion & Clothing</small></a><a href="ads.html?category=ইলেকট্রনিক্স">📱<b>ইলেকট্রনিক্স</b><small>Electronics</small></a><a href="ads.html?category=সার্ভিস">🔧<b>সার্ভিস</b><small>Professional Services</small></a><a href="ads.html?category=শিক্ষা">📚<b>শিক্ষা</b><small>Education</small></a><a href="ads.html?category=হেলথ">❤️<b>হেলথ</b><small>Health & Care</small></a></div></div></section>
-<section class="section soft"><div class="container"><div class="sectionHead"><div><h2>⭐ Featured Businesses</h2><p>বিশেষভাবে প্রচারিত ব্যবসা</p></div><a href="ads.html?featured=1">সব দেখুন →</a></div><div id="featured" class="cards"></div></div></section>
-<section class="section"><div class="container"><div class="sectionHead"><div><h2>সাম্প্রতিক বিজ্ঞাপন</h2><p>নতুন যোগ হওয়া অনুমোদিত প্রতিষ্ঠান</p></div><a href="ads.html">সব বিজ্ঞাপন →</a></div><div id="recent" class="cards"></div></div></section>
-<section class="cta"><div class="container"><h2>আপনার ব্যবসা অনলাইনে তুলে ধরুন</h2><p>কোনো registration fee নেই। বিজ্ঞাপন submit করুন, approval-এর পর প্রকাশিত হবে।</p><a class="btn" href="add-ad.html">এখনই ফ্রি Listing করুন</a></div></section>
-<footer><div class="container">© 2026 BD AD POST · বাংলাদেশের ব্যবসার মার্কেটপ্লেস</div></footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>শাহমাহমুদপুর বাজার | স্থানীয় ক্রয়-বিক্রয়</title>
+  <meta
+    name="description"
+    content="৪নং শাহমাহমুদপুর ইউনিয়নের স্থানীয় ক্রয়-বিক্রয় মার্কেটপ্লেস।"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Ambient Background -->
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <div class="ambient-grid"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+
+    <div class="container header-inner">
+
+      <a href="index.html" class="brand">
+        <span class="brand-main">শাহমাহমুদপুর</span>
+        <span class="brand-sub">বাজার</span>
+        <small>LOCAL MARKETPLACE</small>
+      </a>
+
+      <div class="header-search">
+
+        <div class="search-box">
+
+          <span class="search-icon">⌕</span>
+
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="মোবাইল, গাড়ি, জমি, গরু বা সেবা খুঁজুন..."
+            autocomplete="off"
+          >
+
+          <button id="searchButton" type="button">
+            খুঁজুন
+          </button>
+
+        </div>
+
+      </div>
+
+      <div class="header-actions">
+
+        <button class="icon-button" id="favoriteButton" type="button">
+          ♡
+          <span>পছন্দ</span>
+        </button>
+
+        <button class="account-button" id="loginButton" type="button">
+          <span class="account-icon">◉</span>
+          <span>লগইন</span>
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+
+      <div class="container nav-inner">
+
+        <div class="nav-links">
+
+          <button type="button">ক্যাটাগরি</button>
+          <button type="button">সব বিজ্ঞাপন</button>
+          <button type="button">নতুন বিজ্ঞাপন</button>
+          <button type="button">জনপ্রিয়</button>
+          <button type="button">সেবা</button>
+
+        </div>
+
+        <button class="post-ad-button" id="postAdButton" type="button">
+          <span>＋</span>
+          বিজ্ঞাপন দিন
+        </button>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+
+  <main>
+
+    <!-- Location -->
+    <section class="location-section">
+
+      <div class="container">
+
+        <div class="location">
+
+          <span class="location-dot"></span>
+
+          <span>আপনার লোকেশন</span>
+
+          <button type="button">
+            ৪নং শাহমাহমুদপুর ইউনিয়ন
+            <span>⌄</span>
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Hero -->
+    <section class="hero-section">
+
+      <div class="container">
+
+        <div class="hero">
+
+          <div class="hero-content">
+
+            <div class="eyebrow">
+              <span></span>
+              YOUR LOCAL MARKETPLACE
+            </div>
+
+            <h1>
+              আপনার এলাকার
+              <strong>কেনাবেচা</strong>
+              এখন এক জায়গায়।
+            </h1>
+
+            <p>
+              প্রয়োজনীয় জিনিস খুঁজে নিন অথবা আপনার অপ্রয়োজনীয়
+              পণ্য বিক্রি করুন। সরাসরি স্থানীয় মানুষের সাথে।
+            </p>
+
+            <div class="hero-actions">
+
+              <button
+                class="primary-button"
+                id="heroPostButton"
+                type="button"
+              >
+                বিজ্ঞাপন দিন
+                <span>→</span>
+              </button>
+
+              <button
+                class="secondary-button"
+                id="exploreButton"
+                type="button"
+              >
+                বিজ্ঞাপন দেখুন
+              </button>
+
+            </div>
+
+            <div class="hero-stats">
+
+              <div>
+                <strong>স্থানীয়</strong>
+                <span>Marketplace</span>
+              </div>
+
+              <div>
+                <strong>সহজ</strong>
+                <span>কেনাবেচা</span>
+              </div>
+
+              <div>
+                <strong>নিরাপদ</strong>
+                <span>যোগাযোগ</span>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="hero-visual">
+
+            <div class="visual-ring ring-one"></div>
+            <div class="visual-ring ring-two"></div>
+
+            <div class="market-orb">
+
+              <div class="orb-shine"></div>
+
+              <div class="orb-symbol">
+                ◈
+              </div>
+
+            </div>
+
+            <div class="floating-card card-top">
+              <span>NEW</span>
+              <strong>বিজ্ঞাপন</strong>
+            </div>
+
+            <div class="floating-card card-bottom">
+              <span>LOCAL</span>
+              <strong>৪নং শাহমাহমুদপুর</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Categories -->
+    <section class="section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="section-kicker">BROWSE</span>
+            <h2>ক্যাটাগরি</h2>
+          </div>
+
+          <button type="button" class="view-all">
+            সব ক্যাটাগরি →
+          </button>
+
+        </div>
+
+
+        <div class="category-grid">
+
+          <button class="category-card" data-category="মোবাইল" type="button">
+            <span class="category-icon">▣</span>
+            <strong>মোবাইল</strong>
+            <small>ফোন ও অ্যাক্সেসরিজ</small>
+          </button>
+
+          <button class="category-card" data-category="যানবাহন" type="button">
+            <span class="category-icon">◈</span>
+            <strong>যানবাহন</strong>
+            <small>বাইক, গাড়ি ও সাইকেল</small>
+          </button>
+
+          <button class="category-card" data-category="সম্পত্তি" type="button">
+            <span class="category-icon">⌂</span>
+            <strong>সম্পত্তি</strong>
+            <small>জমি, বাড়ি ও দোকান</small>
+          </button>
+
+          <button class="category-card" data-category="কৃষি" type="button">
+            <span class="category-icon">✦</span>
+            <strong>কৃষি ও পশু</strong>
+            <small>গরু, ছাগল ও কৃষি</small>
+          </button>
+
+          <button class="category-card" data-category="ইলেকট্রনিক্স" type="button">
+            <span class="category-icon">▤</span>
+            <strong>ইলেকট্রনিক্স</strong>
+            <small>TV, laptop ও অন্যান্য</small>
+          </button>
+
+          <button class="category-card" data-category="সেবা" type="button">
+            <span class="category-icon">＋</span>
+            <strong>স্থানীয় সেবা</strong>
+            <small>মিস্ত্রি, সার্ভিস ও কাজ</small>
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Featured Promotion -->
+    <section class="section">
+
+      <div class="container">
+
+        <div class="promotion">
+
+          <div class="promotion-light"></div>
+
+          <div class="promotion-content">
+
+            <span class="promotion-label">
+              PREMIUM LISTING
+            </span>
+
+            <h2>
+              আপনার বিজ্ঞাপনকে
+              <strong>সবার আগে</strong> দেখান।
+            </h2>
+
+            <p>
+              Featured, Top অথবা Boost ব্যবহার করে
+              আপনার বিজ্ঞাপন আরও বেশি মানুষের কাছে পৌঁছে দিন।
+            </p>
+
+          </div>
+
+          <button id="promotionButton" type="button">
+            জানুন →
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Latest Ads -->
+    <section class="section listings-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="section-kicker">JUST ARRIVED</span>
+            <h2>সর্বশেষ বিজ্ঞাপন</h2>
+          </div>
+
+          <button id="allAdsButton" type="button" class="view-all">
+            সব বিজ্ঞাপন →
+          </button>
+
+        </div>
+
+
+        <div class="listing-grid">
+
+          <article class="listing-card">
+
+            <button class="favorite" type="button" aria-label="Favourite">
+              ♡
+            </button>
+
+            <div class="listing-image phone-image">
+              <span>PHONE</span>
+            </div>
+
+            <div class="listing-content">
+
+              <span class="verified-badge">
+                VERIFIED
+              </span>
+
+              <h3>
+                iPhone 13 128GB — ভালো কন্ডিশন
+              </h3>
+
+              <strong class="listing-price">
+                ৳ 42,000
+              </strong>
+
+              <div class="listing-meta">
+                <span>⌖ শাহমাহমুদপুর</span>
+                <span>১২ মিনিট আগে</span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="listing-card">
+
+            <button class="favorite" type="button" aria-label="Favourite">
+              ♡
+            </button>
+
+            <div class="listing-image bike-image">
+              <span>BIKE</span>
+            </div>
+
+            <div class="listing-content">
+
+              <span class="urgent-badge">
+                URGENT
+              </span>
+
+              <h3>
+                Bajaj Pulsar 150 — বিক্রি হবে
+              </h3>
+
+              <strong class="listing-price">
+                ৳ 1,25,000
+              </strong>
+
+              <div class="listing-meta">
+                <span>⌖ মহামায়া</span>
+                <span>৪৫ মিনিট আগে</span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="listing-card">
+
+            <button class="favorite" type="button" aria-label="Favourite">
+              ♡
+            </button>
+
+            <div class="listing-image livestock-image">
+              <span>LIVESTOCK</span>
+            </div>
+
+            <div class="listing-content">
+
+              <h3>
+                দেশি গরু — সুস্থ ও ভালো জাত
+              </h3>
+
+              <strong class="listing-price">
+                ৳ 1,10,000
+              </strong>
+
+              <div class="listing-meta">
+                <span>⌖ শাহমাহমুদপুর</span>
+                <span>১ ঘণ্টা আগে</span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="listing-card">
+
+            <button class="favorite" type="button" aria-label="Favourite">
+              ♡
+            </button>
+
+            <div class="listing-image furniture-image">
+              <span>FURNITURE</span>
+            </div>
+
+            <div class="listing-content">
+
+              <h3>
+                কাঠের ডাইনিং টেবিল ও চেয়ার সেট
+              </h3>
+
+              <strong class="listing-price">
+                ৳ 18,000
+              </strong>
+
+              <div class="listing-meta">
+                <span>⌖ মহামায়া</span>
+                <span>২ ঘণ্টা আগে</span>
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Hijama -->
+    <section class="section">
+
+      <div class="container">
+
+        <div class="service-banner">
+
+          <div>
+
+            <span class="section-kicker">
+              PARTNER SERVICE
+            </span>
+
+            <h2>
+              সুন্নাহ শপ
+              <span>এন্ড হিজামা সেন্টার</span>
+            </h2>
+
+            <p>
+              মহামায়া বাজার, চাঁদপুর সদর।
+              অনলাইনে হিজামা appointment বুক করার সুবিধা।
+            </p>
+
+          </div>
+
+          <button id="hijamaButton" type="button">
+            Appointment বুক করুন →
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Trust -->
+    <section class="section trust-section">
+
+      <div class="container">
+
+        <div class="trust-grid">
+
+          <div class="trust-item">
+            <span>✓</span>
+            <div>
+              <strong>Verified Users</strong>
+              <p>ফোন verification ও seller profile।</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <span>◉</span>
+            <div>
+              <strong>Direct Chat</strong>
+              <p>ক্রেতা ও বিক্রেতার সরাসরি যোগাযোগ।</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <span>⚑</span>
+            <div>
+              <strong>Safety First</strong>
+              <p>সন্দেহজনক বিজ্ঞাপন report করার সুবিধা।</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="site-footer">
+
+    <div class="container footer-inner">
+
+      <div>
+        <strong>শাহমাহমুদপুর বাজার</strong>
+        <p>
+          ৪নং শাহমাহমুদপুর ইউনিয়নের স্থানীয় marketplace।
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <button type="button">আমাদের সম্পর্কে</button>
+        <button type="button">যোগাযোগ</button>
+        <button type="button">নিরাপত্তা</button>
+        <button type="button">শর্তাবলি</button>
+      </div>
+
+      <small>
+        © 2026 শাহমাহমুদপুর বাজার
+      </small>
+
+    </div>
+
+  </footer>
+
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
