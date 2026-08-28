@@ -1,1 +1,341 @@
+<!DOCTYPE html><html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Register | শাহমাহমুদপুর বাজার</title>  <link rel="stylesheet" href="style.css">  <style>
+    .auth-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 15px;
+    }
 
+    .auth-box {
+      width: min(100%, 450px);
+      padding: 30px;
+      border: 1px solid rgba(105,245,165,.16);
+      border-radius: 14px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.05),
+          rgba(255,255,255,.015)
+        );
+      box-shadow:
+        0 25px 80px rgba(0,0,0,.4),
+        0 0 35px rgba(105,245,165,.06);
+      backdrop-filter: blur(18px);
+    }
+
+    .auth-brand {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .auth-brand strong {
+      display: block;
+      color: var(--green);
+      font-size: 20px;
+      text-shadow: 0 0 18px rgba(105,245,165,.4);
+    }
+
+    .auth-brand span {
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .auth-brand small {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 7px;
+      letter-spacing: 2px;
+    }
+
+    .auth-title {
+      font-size: 25px;
+      letter-spacing: -.8px;
+      margin-bottom: 6px;
+    }
+
+    .auth-description {
+      color: var(--muted);
+      font-size: 9px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .auth-field {
+      margin-bottom: 13px;
+    }
+
+    .auth-field label {
+      display: block;
+      color: #aabbb1;
+      font-size: 8px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .auth-field input {
+      width: 100%;
+      height: 43px;
+      border: 1px solid rgba(105,245,165,.14);
+      border-radius: 6px;
+      background: rgba(255,255,255,.035);
+      color: white;
+      outline: none;
+      padding: 0 12px;
+      font-size: 10px;
+    }
+
+    .auth-field input:focus {
+      border-color: rgba(105,245,165,.6);
+      box-shadow: 0 0 20px rgba(105,245,165,.08);
+    }
+
+    .auth-submit {
+      width: 100%;
+      height: 45px;
+      border: 1px solid var(--green);
+      border-radius: 6px;
+      background: var(--green);
+      color: #041009;
+      font-size: 9px;
+      font-weight: 950;
+      margin-top: 7px;
+      box-shadow: 0 0 25px rgba(105,245,165,.15);
+      transition: .2s;
+    }
+
+    .auth-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 32px rgba(105,245,165,.28);
+    }
+
+    .auth-submit:disabled {
+      opacity: .55;
+      cursor: not-allowed;
+    }
+
+    .terms {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 7px;
+      line-height: 1.5;
+    }
+
+    .terms input {
+      margin-top: 1px;
+      accent-color: var(--green);
+    }
+
+    .terms a {
+      color: var(--green);
+    }
+
+    .auth-message {
+      display: none;
+      margin-top: 13px;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 8px;
+      line-height: 1.5;
+    }
+
+    .auth-message.show {
+      display: block;
+    }
+
+    .auth-message.error {
+      color: #ff9ba9;
+      background: rgba(255,70,100,.07);
+      border: 1px solid rgba(255,70,100,.15);
+    }
+
+    .auth-message.success {
+      color: var(--green);
+      background: rgba(105,245,165,.06);
+      border: 1px solid rgba(105,245,165,.15);
+    }
+
+    .auth-footer {
+      text-align: center;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 8px;
+    }
+
+    .auth-footer a {
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .back-home {
+      display: block;
+      text-align: center;
+      color: var(--muted);
+      font-size: 8px;
+      margin-top: 20px;
+    }
+
+    .back-home:hover {
+      color: var(--green);
+    }
+  </style></head><body>  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <div class="ambient-grid"></div>  <main class="auth-page"><section class="auth-box">
+
+  <div class="auth-brand">
+    <strong>শাহমাহমুদপুর</strong>
+    <span>বাজার</span>
+    <small>THE LOCAL MARKETPLACE</small>
+  </div>
+
+  <h1 class="auth-title">
+    Account তৈরি করুন
+  </h1>
+
+  <p class="auth-description">
+    কয়েকটি তথ্য দিয়ে account তৈরি করুন।
+    এরপর আপনি বিজ্ঞাপন পোস্ট করতে পারবেন।
+  </p>
+
+  <form id="registerForm">
+
+    <div class="auth-field">
+
+      <label for="registerName">
+        FULL NAME
+      </label>
+
+      <input
+        id="registerName"
+        type="text"
+        placeholder="আপনার পূর্ণ নাম"
+        autocomplete="name"
+        maxlength="80"
+        required
+      >
+
+    </div>
+
+    <div class="auth-field">
+
+      <label for="registerEmail">
+        EMAIL
+      </label>
+
+      <input
+        id="registerEmail"
+        type="email"
+        placeholder="আপনার email"
+        autocomplete="email"
+        required
+      >
+
+    </div>
+
+    <div class="auth-field">
+
+      <label for="registerPhone">
+        MOBILE NUMBER
+      </label>
+
+      <input
+        id="registerPhone"
+        type="tel"
+        placeholder="01XXXXXXXXX"
+        autocomplete="tel"
+        maxlength="15"
+        required
+      >
+
+    </div>
+
+    <div class="auth-field">
+
+      <label for="registerPassword">
+        PASSWORD
+      </label>
+
+      <input
+        id="registerPassword"
+        type="password"
+        placeholder="কমপক্ষে ৬ অক্ষর"
+        autocomplete="new-password"
+        minlength="6"
+        required
+      >
+
+    </div>
+
+    <div class="auth-field">
+
+      <label for="registerConfirm">
+        CONFIRM PASSWORD
+      </label>
+
+      <input
+        id="registerConfirm"
+        type="password"
+        placeholder="Password আবার লিখুন"
+        autocomplete="new-password"
+        minlength="6"
+        required
+      >
+
+    </div>
+
+    <label class="terms">
+
+      <input
+        id="terms"
+        type="checkbox"
+        required
+      >
+
+      <span>
+        আমি
+        <a href="#">Terms & Conditions</a>
+        এবং
+        <a href="#">Privacy Policy</a>
+        মেনে নিচ্ছি।
+      </span>
+
+    </label>
+
+    <button
+      class="auth-submit"
+      id="registerSubmit"
+      type="submit"
+    >
+      CREATE ACCOUNT →
+    </button>
+
+    <div
+      id="registerMessage"
+      class="auth-message"
+    ></div>
+
+  </form>
+
+  <div class="auth-footer">
+    আগে থেকেই account আছে?
+    <a href="login.html">Login করুন</a>
+  </div>
+
+  <a
+    href="index.html"
+    class="back-home"
+  >
+    ← Homepage-এ ফিরে যান
+  </a>
+
+</section>
+
+  </main>  <script src="auth.js"></script></body>
+</html>
